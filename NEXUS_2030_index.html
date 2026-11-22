@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS 2030 | All-in-One Visual Future Skills Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#080c16;--card:#111827;--card-soft:#1a2336;--text:#f8fafc;--muted:#94a3b8;--primary:#6366f1;--cyan:#22d3ee;--green:#10b981;--border:rgba(148,163,184,.16);--shadow:0 18px 40px rgba(0,0,0,.4);--radius:18px}
+    [data-theme="light"]{--bg:#f1f5f9;--card:#fff;--card-soft:#e2e8f0;--text:#0f172a;--muted:#475569;--primary:#4f46e5;--cyan:#0891b2;--green:#059669;--border:rgba(15,23,42,.12);--shadow:0 14px 32px rgba(15,23,42,.08)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;transition:background .3s ease,color .3s ease}
+    h1,h2,h3,h4,.brand{font-family:"Space Grotesk",sans-serif}
+    .container{width:min(1220px,92%);margin:0 auto}
+    .navbar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.95rem 0;gap:1rem}
+    .brand{text-decoration:none;color:var(--text);font-size:1.35rem;font-weight:700}.brand span{color:var(--cyan)}
+    .nav-menu{display:flex;gap:1.5rem}.nav-menu a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem}.nav-menu a:hover{color:var(--text)}
+    .nav-actions{display:flex;align-items:center;gap:.6rem}
+    .theme-btn,.refresh-btn{background:var(--card-soft);color:var(--text);border:1px solid var(--border);padding:.45rem .95rem;border-radius:999px;font-weight:700;font-size:.85rem;cursor:pointer;transition:transform .2s ease,border-color .2s ease}
+    .theme-btn:hover,.refresh-btn:hover{transform:translateY(-1px);border-color:var(--cyan)}
+    .hero{padding:4rem 0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.2),transparent 45%),radial-gradient(circle at 80% 15%,rgba(34,211,238,.14),transparent 40%)}
+    .hero-intro{text-align:center;max-width:720px;margin:0 auto 2.8rem}.kicker{display:inline-block;color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.08em;margin-bottom:.5rem}
+    .hero-intro h1{font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.15;margin-bottom:.9rem}.hero-intro h1 span{background:linear-gradient(90deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-intro p{color:var(--muted);font-size:1.05rem}
+    .hero-visual-trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem}
+    .visual-feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .visual-feature-card img{width:100%;height:210px;object-fit:cover}.vfc-body{padding:1.4rem;display:flex;flex-direction:column;flex:1}
+    .tag{font-size:.76rem;font-weight:800;color:var(--cyan);margin-bottom:.4rem}.vfc-body h3{font-size:1.25rem;margin-bottom:.45rem}
+    .vfc-body p{color:var(--muted);font-size:.93rem;margin-bottom:1rem;flex:1}.inline-link{color:var(--primary);font-weight:700;text-decoration:none;font-size:.9rem}
+    .section{padding:4.5rem 0}.alt-band{background:color-mix(in srgb,var(--card) 55%,var(--bg));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .section-head{text-align:center;max-width:660px;margin:0 auto 2.4rem}.section-head h2{font-size:clamp(1.75rem,3vw,2.35rem);margin-bottom:.45rem}.section-head p{color:var(--muted)}
+    .control-deck{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+    .filter-pills{display:flex;flex-wrap:wrap;gap:.5rem}.pill{background:var(--card-soft);color:var(--text);border:1px solid var(--border);padding:.5rem 1rem;border-radius:999px;font-weight:700;font-size:.85rem;cursor:pointer}
+    .pill.active,.pill:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .logic-controls{display:flex;align-items:center;flex-wrap:wrap;gap:1rem}.hours-slider{display:flex;align-items:center;gap:.6rem;font-size:.88rem;background:var(--card-soft);padding:.45rem .9rem;border-radius:999px}
+    .hours-slider strong{color:var(--cyan)}.search-box{background:var(--card-soft);color:var(--text);border:1px solid var(--border);padding:.55rem 1rem;border-radius:999px;font-family:inherit;outline:none}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.6rem}
+    .skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease}
+    .skill-card:hover{transform:translateY(-5px);border-color:var(--primary)}.skill-card img{width:100%;height:185px;object-fit:cover}
+    .skill-content{padding:1.3rem;display:flex;flex-direction:column;flex:1}.skill-meta{display:flex;justify-content:space-between;font-size:.78rem;font-weight:700;color:var(--cyan);margin-bottom:.4rem}
+    .skill-content h3{font-size:1.2rem;margin-bottom:.45rem}.skill-content p{color:var(--muted);font-size:.9rem;margin-bottom:1rem;flex:1}
+    .live-calc-bar{background:var(--card-soft);padding:.55rem .8rem;border-radius:10px;font-size:.82rem;font-weight:700;display:flex;justify-content:space-between;margin-bottom:.9rem}
+    .live-calc-bar span:last-child{color:var(--green)}.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+    .btn-sm{padding:.6rem .7rem;border-radius:10px;font-weight:700;font-size:.82rem;cursor:pointer;border:1px solid var(--border);transition:all .2s}
+    .btn-outline{background:transparent;color:var(--text)}.btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+    .btn-add{background:var(--primary);color:#fff;border-color:var(--primary)}.btn-add.added{background:var(--green);border-color:var(--green)}
+    .evolution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.6rem}
+    .evo-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .evo-card img{width:100%;height:190px;object-fit:cover}.evo-body{padding:1.35rem;display:flex;flex-direction:column;flex:1}
+    .evo-switch{display:inline-flex;background:var(--card-soft);border-radius:999px;padding:.25rem;margin-bottom:.9rem;align-self:flex-start}
+    .evo-tab{border:none;background:transparent;color:var(--muted);padding:.35rem .85rem;border-radius:999px;font-size:.78rem;font-weight:800;cursor:pointer}
+    .evo-tab.active{background:var(--primary);color:#fff}.evo-body h3{font-size:1.18rem;margin-bottom:.45rem}.evo-body p{color:var(--muted);font-size:.92rem}
+    .plan-wrapper{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+    .plan-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem;margin-bottom:1.8rem;padding-bottom:1.4rem;border-bottom:1px solid var(--border)}
+    .plan-metrics{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.metric{background:var(--card-soft);padding:.65rem 1.1rem;border-radius:12px;text-align:center}
+    .metric strong{display:block;font-size:1.25rem;color:var(--cyan)}.metric span{font-size:.78rem;color:var(--muted)}
+    .clear-btn{background:transparent;color:#f87171;border:1px solid rgba(248,113,113,.4);padding:.6rem 1rem;border-radius:10px;font-weight:700;cursor:pointer}
+    .plan-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+    .plan-item-card{background:var(--card-soft);border-radius:14px;overflow:hidden;border:1px solid var(--border)}.plan-item-card img{width:100%;height:130px;object-fit:cover}
+    .plan-item-body{padding:1rem}.plan-item-body h4{margin-bottom:.3rem}.plan-item-body p{font-size:.84rem;color:var(--muted);margin-bottom:.7rem}
+    .remove-plan-btn{background:rgba(248,113,113,.15);color:#f87171;border:none;padding:.4rem .8rem;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer}
+    .modal-overlay{position:fixed;inset:0;background:rgba(2,6,23,.8);display:none;justify-content:center;align-items:center;padding:1rem;z-index:300}
+    .modal-overlay.show{display:flex}.modal-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);max-width:620px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+    .close-btn{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(15,23,42,.85);color:#fff;cursor:pointer}
+    .modal-top-img{width:100%;height:230px;object-fit:cover}.modal-body{padding:1.6rem}.modal-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem}
+    .badge{background:var(--card-soft);color:var(--cyan);padding:.25rem .75rem;border-radius:999px;font-size:.78rem;font-weight:700}
+    .modal-desc{color:var(--muted);margin:.6rem 0 1.1rem}.modal-steps{padding-left:1.2rem;color:var(--muted);margin:.5rem 0 1.1rem}
+    .modal-tools{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}.tool-chip{background:rgba(99,102,241,.16);padding:.35rem .8rem;border-radius:999px;font-size:.82rem;font-weight:700}
+    .footer{text-align:center;padding:2rem 0;color:var(--muted);border-top:1px solid var(--border)}
+    @media(max-width:760px){.nav-menu{display:none}.nav-inner{flex-wrap:wrap}.nav-actions{margin-left:auto}.control-deck{align-items:flex-start}.logic-controls{width:100%}.search-box{width:100%}.hours-slider{max-width:100%}.plan-wrapper{padding:1.2rem}}
+  </style>
+</head>
+<body>
+<header class="navbar"><div class="container nav-inner">
+  <a href="#" class="brand">⚡ NEXUS<span>2030</span></a>
+  <nav class="nav-menu"><a href="#skills">Skills Explorer</a><a href="#evolution">Before vs 2030</a><a href="#my-plan">My Learning Plan (<span id="navPlanCount">0</span>)</a></nav>
+  <div class="nav-actions"><button id="refreshBtn" class="refresh-btn" title="Refresh filters, pace & view">🔄 Refresh</button><button id="themeBtn" class="theme-btn">☀️ Light</button></div>
+</div></header>
+<section class="hero"><div class="container">
+  <div class="hero-intro"><span class="kicker">INTERACTIVE VISUAL LEARNING PLATFORM</span><h1>Master <span>Future Skills</span> With Live Career Logic</h1><p>Every visual card pairs real-world imagery directly with structured insights, time estimators, and interactive skill planning.</p></div>
+  <div class="hero-visual-trio">
+    <article class="visual-feature-card"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Artificial Intelligence"><div class="vfc-body"><span class="tag">01 • AI & AUTOMATION</span><h3>Human + AI Co-Creation</h3><p>Learn how prompt architecture and intelligent agents multiply creative and analytical output.</p><a href="#skills" class="inline-link">Explore AI Track →</a></div></article>
+    <article class="visual-feature-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data Intelligence"><div class="vfc-body"><span class="tag">02 • DATA & DECISIONS</span><h3>Evidence-Driven Strategy</h3><p>Transform complex datasets into clear visual stories that guide confident product decisions.</p><a href="#skills" class="inline-link">Explore Data Track →</a></div></article>
+    <article class="visual-feature-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Modern Teamwork"><div class="vfc-body"><span class="tag">03 • GLOBAL COLLABORATION</span><h3>Adaptive Digital Leadership</h3><p>Lead high-trust remote teams with systems thinking, empathy, and rapid self-learning.</p><a href="#evolution" class="inline-link">See 2030 Shift →</a></div></article>
+  </div>
+</div></section>
+<section id="skills" class="section"><div class="container">
+  <div class="section-head"><span class="kicker">INTERACTIVE SKILL CARDS</span><h2>Explore Future Skills</h2><p>Adjust your weekly study hours to see live completion timelines update under every single image.</p></div>
+  <div class="control-deck"><div class="filter-pills" id="filterPills">
+    <button class="pill active" data-cat="all">All (8)</button><button class="pill" data-cat="tech">Tech & AI</button><button class="pill" data-cat="data">Data & Security</button><button class="pill" data-cat="human">Mindset & Leadership</button>
+  </div><div class="logic-controls"><label class="hours-slider"><span>Study Pace: <strong id="paceLabel">6 hrs/wk</strong></span><input type="range" id="paceInput" min="2" max="20" value="6"></label><input type="text" id="searchBox" class="search-box" placeholder="🔎 Search skill or tool..."></div></div>
+  <div class="cards-grid" id="skillsContainer"></div>
+</div></section>
+<section id="evolution" class="section alt-band"><div class="container">
+  <div class="section-head"><span class="kicker">INTERACTIVE COMPARISON LOGIC</span><h2>How Work Evolves by 2030</h2><p>Toggle each card below its image to compare traditional workflows against future-ready workflows.</p></div>
+  <div class="evolution-grid" id="evolutionContainer"></div>
+</div></section>
+<section id="my-plan" class="section"><div class="container"><div class="plan-wrapper">
+  <div class="plan-header"><div><span class="kicker">YOUR PERSONALIZED ROADMAP</span><h2>Active Learning Plan</h2><p id="planSubtitle">Click "+ Add to Plan" under any skill card above to build your visual roadmap.</p></div>
+    <div class="plan-metrics"><div class="metric"><strong id="totalSkillsCount">0</strong><span>Selected Skills</span></div><div class="metric"><strong id="totalWeeksCount">0 wks</strong><span>Est. Timeline</span></div><button id="clearPlanBtn" class="clear-btn">Reset Plan</button></div>
+  </div><div class="plan-cards-grid" id="planCardsContainer"></div>
+</div></div></section>
+<div class="modal-overlay" id="detailModal"><div class="modal-card"><button class="close-btn" id="closeModalBtn">✕</button><img id="mImg" src="" alt="" class="modal-top-img"><div class="modal-body">
+  <div class="modal-badges"><span id="mCat" class="badge"></span><span id="mTime" class="badge"></span><span id="mDemand" class="badge"></span></div>
+  <h3 id="mTitle"></h3><p id="mDesc" class="modal-desc"></p><h4>Step-by-Step Action Plan</h4><ol id="mSteps" class="modal-steps"></ol><h4>Core Tools & Platforms</h4><div id="mTools" class="modal-tools"></div>
+</div></div></div>
+<footer class="footer"><div class="container"><p><strong>NEXUS 2030</strong> — Single-File Visual Future Skills & Interactive Roadmap Engine</p></div></footer>
+<script>
+const skillsList=[
+{id:"ai-prompting",title:"Applied AI & Prompt Engineering",cat:"tech",catName:"Tech & AI",demand:"98% Demand",hours:48,image:"https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",desc:"Architect structured prompts, validate model reasoning, and automate multi-step research and coding workflows.",steps:["Design clear role, context, and constraint templates for repeatable outputs.","Verify factual accuracy and test edge cases systematically.","Connect AI assistants into daily study, writing, and coding routines."],tools:["Gemini","Python","JSON Schemas","API Workflows"]},
+{id:"web-engineering",title:"Modern Front-End & Cloud Web",cat:"tech",catName:"Tech & AI",demand:"92% Demand",hours:72,image:"https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80",desc:"Build responsive, accessible web interfaces with clean CSS Grid architecture and interactive JavaScript logic.",steps:["Master semantic HTML5 and responsive CSS Grid / Flexbox layouts.","Write modular JavaScript for filtering, state persistence, and dynamic UI.","Deploy live repositories continuously using Git and GitHub Pages."],tools:["HTML5","CSS3 Grid","JavaScript ES6+","GitHub Pages"]},
+{id:"data-analytics",title:"Data Analytics & Visual Storytelling",cat:"data",catName:"Data & Security",demand:"94% Demand",hours:60,image:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",desc:"Clean raw metrics, uncover hidden patterns, and present executive-ready dashboards for smarter decisions.",steps:["Structure clean tables and write analytical queries to filter key KPIs.","Spot trends, correlations, and outliers across real-world datasets.","Translate numbers into clear visual charts with actionable takeaways."],tools:["SQL","Excel / Sheets","Power BI","Python Pandas"]},
+{id:"cybersecurity",title:"Cybersecurity & Digital Defense",cat:"data",catName:"Data & Security",demand:"96% Demand",hours:66,image:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80",desc:"Safeguard networks, user identities, and cloud applications against emerging cyber threats.",steps:["Learn core networking protocols, encryption, and authentication flows.","Identify common web vulnerabilities and apply zero-trust access rules.","Practice packet inspection and incident response in sandbox labs."],tools:["Linux","Wireshark","OWASP Top 10","IAM Security"]},
+{id:"critical-thinking",title:"First-Principles Problem Solving",cat:"human",catName:"Mindset & Leadership",demand:"95% Demand",hours:36,image:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",desc:"Break complex challenges down to fundamental truths and test assumptions with disciplined logic.",steps:["Separate verified facts from inherited assumptions.","Map root causes and second-order effects before choosing a solution.","Run rapid small-scale tests to validate ideas early."],tools:["Root-Cause Trees","Decision Matrices","SWOT Analysis"]},
+{id:"rapid-learning",title:"Meta-Learning & Adaptability",cat:"human",catName:"Mindset & Leadership",demand:"93% Demand",hours:30,image:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",desc:"Master unfamiliar tools and technical domains rapidly through active project-based practice.",steps:["Identify the 20% core concepts that drive 80% of practical results.","Build hands-on mini-projects instead of passive reading.","Document takeaways and teach concepts back to reinforce memory."],tools:["Active Recall","Project Logs","Documentation"]},
+{id:"ux-product",title:"Product Thinking & UX Design",cat:"tech",catName:"Tech & AI",demand:"90% Demand",hours:54,image:"https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=900&q=80",desc:"Design intuitive digital experiences that solve real user friction with clarity and elegance.",steps:["Map user journeys and remove unnecessary steps in core flows.","Prototype clean wireframes with strong visual hierarchy and contrast.","Test usability with real users and iterate based on feedback."],tools:["Wireframing","Design Systems","Usability Audits"]},
+{id:"remote-leadership",title:"Digital Leadership & Emotional IQ",cat:"human",catName:"Mindset & Leadership",demand:"91% Demand",hours:42,image:"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",desc:"Align distributed teams through crystal-clear communication, empathy, and shared ownership.",steps:["Write structured asynchronous updates with clear goals and owners.","Practice active listening and deliver constructive feedback.","Build psychological safety so teams surface risks early."],tools:["Async Briefs","Kanban Boards","Team Retrospectives"]}
+];
+const evolutionCards=[
+{id:"evo-coding",image:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",beforeTitle:"Manual Boilerplate Coding",beforeText:"Spending hours writing repetitive syntax from scratch and debugging isolated files manually.",futureTitle:"AI-Augmented System Architecture",futureText:"Using AI copilots to scaffold code rapidly while focusing human effort on architecture, logic, and security."},
+{id:"evo-decisions",image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",beforeTitle:"Static Monthly Spreadsheets",beforeText:"Waiting weeks for manual reports and making decisions based on outdated averages or guesswork.",futureTitle:"Live Predictive Intelligence",futureText:"Querying real-time dashboards and running instant what-if scenarios before committing resources."},
+{id:"evo-learning",image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",beforeTitle:"One-Time Degree Memorization",beforeText:"Relying on static textbook theory learned once years ago without continuous hands-on updates.",futureTitle:"Continuous Micro-Sprint Mastery",futureText:"Building live portfolio projects every month and adapting rapidly as new tools emerge."},
+{id:"evo-teamwork",image:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",beforeTitle:"Endless Status Meetings",beforeText:"Losing productive hours in synchronous calls just to share basic progress updates.",futureTitle:"Async-First Global Collaboration",futureText:"Sharing concise visual updates across time zones and reserving live calls for deep creative problem-solving."}
+];
+let activeCat="all",weeklyPace=6;
+let selectedPlanIds;
+try{const saved=JSON.parse(localStorage.getItem("nexusVisualPlan"));selectedPlanIds=Array.isArray(saved)?saved:["ai-prompting","web-engineering"]}catch(e){selectedPlanIds=["ai-prompting","web-engineering"]}
+const $=id=>document.getElementById(id);
+const skillsContainer=$("skillsContainer"),filterPills=document.querySelectorAll(".pill"),paceInput=$("paceInput"),paceLabel=$("paceLabel"),searchBox=$("searchBox"),evolutionContainer=$("evolutionContainer"),planCardsContainer=$("planCardsContainer"),totalSkillsCount=$("totalSkillsCount"),totalWeeksCount=$("totalWeeksCount"),navPlanCount=$("navPlanCount"),planSubtitle=$("planSubtitle"),clearPlanBtn=$("clearPlanBtn"),detailModal=$("detailModal"),closeModalBtn=$("closeModalBtn"),themeBtn=$("themeBtn"),refreshBtn=$("refreshBtn");
+function renderSkills(){
+ const query=searchBox.value.trim().toLowerCase();skillsContainer.innerHTML="";
+ const filtered=skillsList.filter(s=>(activeCat==="all"||s.cat===activeCat)&&(s.title.toLowerCase().includes(query)||s.desc.toLowerCase().includes(query)||s.tools.some(t=>t.toLowerCase().includes(query))));
+ if(!filtered.length){skillsContainer.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--muted);">No skills match your search.</p>';return}
+ filtered.forEach(skill=>{
+  const weeks=Math.max(2,Math.ceil(skill.hours/weeklyPace)),isAdded=selectedPlanIds.includes(skill.id),card=document.createElement("article");card.className="skill-card";
+  card.innerHTML=`<img src="${skill.image}" alt="${skill.title}" loading="lazy"><div class="skill-content"><div class="skill-meta"><span>${skill.catName}</span><span>${skill.demand}</span></div><h3>${skill.title}</h3><p>${skill.desc}</p><div class="live-calc-bar"><span>At ${weeklyPace} hrs/wk:</span><span>~${weeks} Weeks (${skill.hours}h)</span></div><div class="card-actions"><button class="btn-sm btn-outline view-btn">View Blueprint</button><button class="btn-sm btn-add ${isAdded?"added":""}">${isAdded?"✓ In My Plan":"+ Add to Plan"}</button></div></div>`;
+  card.querySelector(".view-btn").addEventListener("click",()=>openSkillModal(skill,weeks));card.querySelector(".btn-add").addEventListener("click",()=>togglePlanItem(skill.id));skillsContainer.appendChild(card);
+ });
+}
+function renderEvolution(){
+ evolutionContainer.innerHTML="";evolutionCards.forEach(item=>{
+  const card=document.createElement("article");card.className="evo-card";
+  card.innerHTML=`<img src="${item.image}" alt="${item.futureTitle}" loading="lazy"><div class="evo-body"><div class="evo-switch"><button class="evo-tab" data-mode="before">Traditional</button><button class="evo-tab active" data-mode="future">2030 Future</button></div><h3 class="evo-title">${item.futureTitle}</h3><p class="evo-text">${item.futureText}</p></div>`;
+  const tabs=card.querySelectorAll(".evo-tab"),titleEl=card.querySelector(".evo-title"),textEl=card.querySelector(".evo-text");
+  tabs.forEach(tab=>tab.addEventListener("click",()=>{tabs.forEach(t=>t.classList.remove("active"));tab.classList.add("active");const before=tab.dataset.mode==="before";titleEl.textContent=before?item.beforeTitle:item.futureTitle;textEl.textContent=before?item.beforeText:item.futureText}));
+  evolutionContainer.appendChild(card);
+ });
+}
+function savePlan(){try{localStorage.setItem("nexusVisualPlan",JSON.stringify(selectedPlanIds))}catch(e){}}
+function togglePlanItem(id){selectedPlanIds=selectedPlanIds.includes(id)?selectedPlanIds.filter(x=>x!==id):[...selectedPlanIds,id];savePlan();renderSkills();renderPlan()}
+function renderPlan(){
+ planCardsContainer.innerHTML="";const chosen=skillsList.filter(s=>selectedPlanIds.includes(s.id)),totalHours=chosen.reduce((sum,s)=>sum+s.hours,0),totalWeeks=chosen.length?Math.max(2,Math.ceil(totalHours/weeklyPace)):0;
+ totalSkillsCount.textContent=chosen.length;navPlanCount.textContent=chosen.length;totalWeeksCount.textContent=`${totalWeeks} wks`;
+ if(!chosen.length){planSubtitle.textContent="No skills selected yet—click '+ Add to Plan' under any skill card above.";return}
+ planSubtitle.textContent=`Total study workload: ${totalHours} hours across ${chosen.length} selected domain(s) at ${weeklyPace} hrs/week.`;
+ chosen.forEach(skill=>{const weeks=Math.max(2,Math.ceil(skill.hours/weeklyPace)),item=document.createElement("div");item.className="plan-item-card";item.innerHTML=`<img src="${skill.image}" alt="${skill.title}"><div class="plan-item-body"><h4>${skill.title}</h4><p>Est. ${weeks} weeks (${skill.hours} hrs) • ${skill.catName}</p><button class="remove-plan-btn">Remove</button></div>`;item.querySelector(".remove-plan-btn").addEventListener("click",()=>togglePlanItem(skill.id));planCardsContainer.appendChild(item)});
+}
+clearPlanBtn.addEventListener("click",()=>{selectedPlanIds=[];savePlan();renderSkills();renderPlan()});
+function openSkillModal(skill,weeks){
+ $("mImg").src=skill.image;$("mImg").alt=skill.title;$("mCat").textContent=skill.catName;$("mTime").textContent=`~${weeks} Weeks @ ${weeklyPace}h/wk`;$("mDemand").textContent=skill.demand;$("mTitle").textContent=skill.title;$("mDesc").textContent=skill.desc;
+ $("mSteps").innerHTML=skill.steps.map(s=>`<li>${s}</li>`).join("");$("mTools").innerHTML=skill.tools.map(t=>`<span class="tool-chip">${t}</span>`).join("");detailModal.classList.add("show");
+}
+closeModalBtn.addEventListener("click",()=>detailModal.classList.remove("show"));detailModal.addEventListener("click",e=>{if(e.target===detailModal)detailModal.classList.remove("show")});
+filterPills.forEach(pill=>pill.addEventListener("click",()=>{filterPills.forEach(p=>p.classList.remove("active"));pill.classList.add("active");activeCat=pill.dataset.cat;renderSkills()}));
+paceInput.addEventListener("input",()=>{weeklyPace=Number(paceInput.value);paceLabel.textContent=`${weeklyPace} hrs/wk`;renderSkills();renderPlan()});searchBox.addEventListener("input",renderSkills);
+refreshBtn.addEventListener("click",()=>{activeCat="all";weeklyPace=6;paceInput.value=6;paceLabel.textContent="6 hrs/wk";searchBox.value="";filterPills.forEach((p,i)=>p.classList.toggle("active",i===0));renderSkills();renderEvolution();renderPlan();window.scrollTo({top:0,behavior:"smooth"})});
+let savedTheme="dark";try{savedTheme=localStorage.getItem("nexusThemeMode")||"dark"}catch(e){}
+document.documentElement.setAttribute("data-theme",savedTheme);themeBtn.textContent=savedTheme==="dark"?"☀️ Light":"🌙 Dark";
+themeBtn.addEventListener("click",()=>{const next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",next);try{localStorage.setItem("nexusThemeMode",next)}catch(e){}themeBtn.textContent=next==="dark"?"☀️ Light":"🌙 Dark"});
+renderSkills();renderEvolution();renderPlan();
+</script>
+</body>
+</html>
